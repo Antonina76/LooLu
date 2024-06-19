@@ -11,3 +11,5 @@ gradlew
 gradlew/
 *.log
 *.png
+###
+.DS_Store
