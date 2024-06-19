@@ -47,14 +47,5 @@ public class Registration {
         this.userName = userName;
     }
 
-    @Override
-    public String toString() {
-        return "Registration{" +
-                "firstName='" + firstName + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", email='" + email + '\'' +
-                ", password='" + password + '\'' +
-                ", userName='" + userName + '\'' +
-                '}';
-    }
+
 }
