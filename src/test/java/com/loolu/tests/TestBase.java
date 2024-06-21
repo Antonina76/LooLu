@@ -26,4 +26,18 @@ public class TestBase {
     public boolean isElementPresent(By locator) {
         return driver.findElements(locator).size() > 0;
     }
+
+    public void type(By locator, String text) {
+        click(locator);
+        driver.findElement(locator).clear();
+        driver.findElement(locator).sendKeys(text);
+    }
+
+    public void clickOnTheGuest() {
+        click(By.className("Header_avatar__T2JUo"));
+    }
+
+    public void click(By locator) {
+        driver.findElement(locator).click();
+    }
 }
