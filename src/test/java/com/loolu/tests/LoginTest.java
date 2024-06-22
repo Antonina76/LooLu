@@ -17,14 +17,24 @@ public class LoginTest extends TestBase {
         type(By.name("email"), "a.p@ap.com");
         type(By.name("password"), "Qwerty007!");
         click(By.className("User_submit__KttEJ"));
-     click(By.className("User_close__cXNYs"));
-        click(By.className("Header_username__S3AFn"));
-        click(By.cssSelector("p:nth-child(4) "));
+    // click(By.className("User_close__cXNYs"));
+      //  click(By.className("Header_username__S3AFn"));
+        //click(By.cssSelector("p:nth-child(4) "));
+        Assert.assertTrue(isAssertPresent());
      //   type(By.name("username"), "Toni");
     //  Assert.assertTrue(isElementPresent(By.cssSelector("p:nth-child(4)")));
 //enter username
     }
+public boolean isAssertPresent(){
+        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(20))
+                .until(ExpectedConditions.alertIsPresent());
+        if (alert == null) {
+            return false;
 
+        }else {
+            return true;
+        }
+}
     }
 
 
