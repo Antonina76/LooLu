@@ -1,40 +1,41 @@
 package com.loolu.tests;
 
-import org.openqa.selenium.Alert;
+import com.loolu.models.User;
 import org.openqa.selenium.By;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
-import java.time.Duration;
-
 public class LoginTest extends TestBase {
     @Test
-    public void testLogin() {
-        clickOnTheGuest();
-        click(By.className("User_link__FrsBm"));
-        type(By.name("email"), "a.p@ap.com");
-        type(By.name("password"), "Qwerty007!");
-        click(By.className("User_submit__KttEJ"));
-    // click(By.className("User_close__cXNYs"));
-      //  click(By.className("Header_username__S3AFn"));
+    public void loginRegisteredUserPositiveTest() {
+        app.getHomerPage().clickOnTheGuest();
+        app.getUser().clickOnTheIAlreadyHaveAnAccount();
+        app.getUser().fillLoginForm(new User().setEmail("a.p@ap.com").setPassword("Qwerty007!"));
+        app.getUser().clickOnLogInButton();
+        // click(By.className("User_close__cXNYs"));
+        //  click(By.className("Header_username__S3AFn"));
         //click(By.cssSelector("p:nth-child(4) "));
-        Assert.assertTrue(isAssertPresent());
-     //   type(By.name("username"), "Toni");
-    //  Assert.assertTrue(isElementPresent(By.cssSelector("p:nth-child(4)")));
+        // Assert.assertTrue(isAssertPresent());
+        //   type(By.name("username"), "Toni");
+        Assert.assertTrue(app.getHomerPage().isElementPresent(By.className("Header_user__4Ktdg")));
 //enter username
     }
-public boolean isAssertPresent(){
-        Alert alert = new WebDriverWait(driver, Duration.ofSeconds(20))
-                .until(ExpectedConditions.alertIsPresent());
-        if (alert == null) {
-            return false;
 
-        }else {
-            return true;
-        }
-}
+    @Test
+    public void loginRegisteredUserNegativeTestWithoutEmail() {
+        app.getHomerPage().clickOnTheGuest();
+        app.getUser().clickOnTheIAlreadyHaveAnAccount();
+        app.getUser().fillLoginForm(new User().setPassword("Qwerty007!"));
+        app.getUser().clickOnLogInButton();
+        Assert.assertTrue(app.getHomerPage().isElementPresent(By.className("Header_user__4Ktdg")));
     }
 
-
+    @Test
+    public void loginRegisteredUserNegativeTestWithoutPassword() {
+        app.getHomerPage().clickOnTheGuest();
+        app.getUser().clickOnTheIAlreadyHaveAnAccount();
+        app.getUser().fillLoginForm(new User().setEmail("a.p@ap.com"));
+        app.getUser().clickOnLogInButton();
+        Assert.assertTrue(app.getHomerPage().isElementPresent(By.className("Header_user__4Ktdg")));
+    }
+}

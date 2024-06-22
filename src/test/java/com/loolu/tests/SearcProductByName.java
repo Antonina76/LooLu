@@ -8,8 +8,8 @@ public class SearcProductByName extends TestBase{
     @Test
     public void searcProductByName(){
       //  click(By.name("search"));
-        type(By.name("search"),"Wireless Mouse");
-        Assert.assertTrue(isElementPresent(By.className("Header_item__VxePD")));
+        app.getUser().type(By.name("search"),"Wireless Mouse");
+        Assert.assertTrue(app.getHomerPage().isElementPresent(By.className("Header_item__VxePD")));
     }
 
     }

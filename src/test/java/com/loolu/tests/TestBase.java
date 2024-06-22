@@ -1,43 +1,28 @@
 package com.loolu.tests;
 
+import com.loolu.fw.ApplicationManager;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeMethod;
-
-import java.time.Duration;
+import org.openqa.selenium.remote.Browser;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 
 public class TestBase {
-    WebDriver driver;
+    protected static ApplicationManager app = new ApplicationManager(System.getProperty("browser",Browser.CHROME.browserName()));
 
-    @BeforeMethod
+    @BeforeSuite
+  //  @BeforeMethod
     public void setUp() {
-        driver = new ChromeDriver();
-        driver.get("http://localhost:3000");
-        driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-    }
+    app.init();
+}
 
-    @AfterMethod(enabled = false)
+    @AfterSuite(enabled = false)
+  //  @AfterMethod(enabled = true)
     public void tearDown() {
-        driver.quit();
-    }
-    public boolean isElementPresent(By locator) {
-        return driver.findElements(locator).size() > 0;
+        app.stop();
     }
 
-    public void type(By locator, String text) {
-        click(locator);
-        driver.findElement(locator).clear();
-        driver.findElement(locator).sendKeys(text);
-    }
 
-    public void clickOnTheGuest() {
-        click(By.className("Header_avatar__T2JUo"));
-    }
-
-    public void click(By locator) {
-        driver.findElement(locator).click();
+    public boolean isSignInComponentPresent() {
+        return app.getHomerPage().isElementPresent(By.className("User_title__gm8FI"));
     }
 }
