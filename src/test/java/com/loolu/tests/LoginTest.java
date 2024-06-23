@@ -6,11 +6,12 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 
 public class LoginTest extends TestBase {
+
     @Test
     public void loginRegisteredUserPositiveTest() {
         app.getHomerPage().clickOnTheGuest();
         app.getUser().clickOnTheIAlreadyHaveAnAccount();
-        app.getUser().fillLoginForm(new User().setEmail("a.p@ap.com").setPassword("Qwerty007!"));
+        app.getUser().fillLoginForm(new User().setEmail("a.pap.com").setPassword("Qwerty007!"));
         app.getUser().clickOnLogInButton();
         // click(By.className("User_close__cXNYs"));
         //  click(By.className("Header_username__S3AFn"));

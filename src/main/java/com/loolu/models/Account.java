@@ -53,4 +53,12 @@ public class Account {
     public String getUsername() {
         return username;
     }
+
+    @Override
+    public String toString() {
+        return "Account{" +
+                "firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                '}';
+    }
 }
