@@ -17,9 +17,9 @@ public class BaseHelper {
     }
 
     public boolean isElementPresent(By locator) {
-
         return ApplicationManager.driver.findElements(locator).size() > 0;
     }
+
 
     public void type(By locator, String text) {
        if(text != null) {
@@ -42,20 +42,12 @@ public class BaseHelper {
                     .until(ExpectedConditions.alertIsPresent());
             if (alert == null) {
                 return false;
-
             }else {
                 alert.accept();
                 return true;
             }
     }
 
-    public void pause(int millis){
-        try {
-            Thread.sleep(millis);
-        } catch (InterruptedException e) {
-            throw new RuntimeException(e);
-        }
-    }
     public String  takeScreenShot(){
         File tmp = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
         File screenshot = new File("screenshots/screen" + System.currentTimeMillis() + ".png");
@@ -67,4 +59,5 @@ public class BaseHelper {
         return screenshot.getAbsolutePath();
 
     }
+
 }

@@ -10,5 +10,4 @@ public class HomePageHelper extends BaseHelper {
     public HomePageHelper(WebDriver driver) {
         super(driver);
     }
-
 }

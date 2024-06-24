@@ -27,10 +27,10 @@ public class DataProviders {
     @DataProvider
     public Iterator<Object[]> createNewAccount() {
         List<Object[]> list = new ArrayList<>();
-        list.add(new Object[]{"Karlon","Kanopt","a.b@ap.com","Qwerty007!","anton"});
-        list.add(new Object[]{"Karlnl","Kanahp","a.n@ap.com","Qwerty007!","antona"});
-        list.add(new Object[]{"Karj","Kanula","a.pt@ap.com","Qwerty007!","antoni"});
-        list.add(new Object[]{"Kalk","Kanp","a.pz@ap.com","Qwerty007!","antonu"});
+        list.add(new Object[]{"Karlonpo","Kanopot","a.b1@ap.com","Qwerty007!","anton"});
+        list.add(new Object[]{"Karö","Kanah","a.n2@ap.com","Qwerty007!","antona"});
+        list.add(new Object[]{"Karrt","Kanulao","a.pt3@ap.com","Qwerty007!","antoni"});
+        list.add(new Object[]{"Kall","Kanpo","a.pz4@ap.com","Qwerty007!","antonu"});
         return list.iterator();
     }
 }

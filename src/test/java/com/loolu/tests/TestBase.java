@@ -48,4 +48,10 @@ public class TestBase {
     public boolean isSignInComponentPresent() {
         return app.getHomerPage().isElementPresent(By.className("User_title__gm8FI"));
     }
+
+
 }
+
+
+
+

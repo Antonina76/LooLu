@@ -8,9 +8,10 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.time.Duration;
 
 public class ApplicationManager  {
+
     static WebDriver driver;
+
     String browser;
-            ;
     UserHelper user;
     HomePageHelper homerPage;
 
@@ -26,10 +27,10 @@ public class ApplicationManager  {
         } else if (browser.equalsIgnoreCase("edge")) {
             driver= new EdgeDriver();
         }
-        driver = new ChromeDriver();
         driver.get("http://localhost:3000");
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+
         user = new UserHelper(driver);
         homerPage = new HomePageHelper(driver);
     }
@@ -46,4 +47,11 @@ public class ApplicationManager  {
         driver.quit();
     }
 
+    public void pause (int millis){
+        try {
+            Thread.sleep(millis);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
+        }
+    }
 }
