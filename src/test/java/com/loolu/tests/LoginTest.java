@@ -23,7 +23,7 @@ public class LoginTest extends TestBase {
         //   type(By.name("username"), "Toni");
        // pause(2000);
         //app.getUser().click(By.xpath("p:nth-child(1)"));
-       Assert.assertTrue(app.getHomerPage().isElementPresent(By.name("p:nth-child(1)")));
+       Assert.assertTrue(app.getHomerPage().isElementPresent(By.xpath("p:nth-child(1)")));
 
     }
 
