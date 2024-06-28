@@ -5,6 +5,7 @@ import com.loolu.utils.AccountData;
 import com.loolu.utils.DataProviders;
 import com.loolu.utils.UserData;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -28,7 +29,8 @@ public class CreateAccountTests extends TestBase {
         app.getUser().clickOnCreateAccountButton();
         //pause(1000);
         app.getUser().click(By.className("Header_avatar__T2JUo"));
-      //  app.getUser().click(By.cssSelector("p:nth-child(4) "));
+
+      app.getUser().click(By.cssSelector("p:nth-child(4) "));
         Assert.assertTrue(app.getHomerPage().isElementPresent(By.xpath("p:nth-child(4)")));
 
     }
@@ -56,6 +58,7 @@ public class CreateAccountTests extends TestBase {
         Assert.assertTrue(app.getHomerPage().isElementPresent(By.className("Header_user__4Ktdg")));
 
     }
+
 }
 
 

@@ -6,6 +6,10 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.util.List;
+
+import static org.testng.Assert.assertTrue;
+
 public class UserHelper extends BaseHelper {
 
 
@@ -37,4 +41,5 @@ public class UserHelper extends BaseHelper {
     public void clickOnTheIAlreadyHaveAnAccount() {
         click(By.className("User_link__FrsBm"));
     }
+
 }

@@ -1,11 +1,14 @@
 package com.loolu.fw;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 import java.time.Duration;
+import java.util.List;
 
 public class ApplicationManager  {
 
@@ -14,6 +17,7 @@ public class ApplicationManager  {
     String browser;
     UserHelper user;
     HomePageHelper homerPage;
+    CartHelper cartHelper;
 
     public ApplicationManager(String browser) {
         this.browser=browser;
@@ -33,6 +37,7 @@ public class ApplicationManager  {
 
         user = new UserHelper(driver);
         homerPage = new HomePageHelper(driver);
+
     }
 
     public UserHelper getUser() {
@@ -54,4 +59,5 @@ public class ApplicationManager  {
             throw new RuntimeException(e);
         }
     }
+
 }

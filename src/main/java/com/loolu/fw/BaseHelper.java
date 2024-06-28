@@ -37,8 +37,8 @@ public class BaseHelper {
         ApplicationManager.driver.findElement(locator).click();
     }
 
-    public boolean isAssertPresent(){
-            Alert alert = new WebDriverWait(ApplicationManager.driver, Duration.ofSeconds(20))
+    public boolean isAlertPresent(){
+            Alert alert = new WebDriverWait(ApplicationManager.driver, Duration.ofSeconds(50))
                     .until(ExpectedConditions.alertIsPresent());
             if (alert == null) {
                 return false;
